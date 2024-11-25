@@ -1,9 +1,9 @@
 import  { useState } from "react";
-import { updateProfile } from "../api/auth";
 
 
-const Profile = ({ user, setUser }) => {
-  const [nickname, setNickname] = useState(user?.nickname || "");
+const Profile = () => {
+  const [nickname, setNickname] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleNicknameChange = (e) => {
     setNickname(e.target.value);

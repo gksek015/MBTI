@@ -1,5 +1,4 @@
-
-import React, { useState } from "react";
+import { useState } from "react";
 
 // 회원가입인지 로그인인지 구분하기 위해 mode 를 props 로 받습니다.
 // onSubmit 도 회원가입과 로그인 페이지에서 각각 구현을 하고 props 로 넘겨줄 겁니다.
@@ -28,7 +27,7 @@ const AuthForm = ({ mode, onSubmit }) => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        name="id"
+        name="userid"
         value={formData.userid}
         onChange={handleChange}
         placeholder="아이디"
@@ -37,6 +36,10 @@ const AuthForm = ({ mode, onSubmit }) => {
       <input
         type="password"
         name="password"
+        value={formData.password}
+        onChange={handleChange}
+        placeholder="비밀번호"
+        required
       />
       {mode === "signup" && (
         <input

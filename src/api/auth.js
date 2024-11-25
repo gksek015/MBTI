@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const API = axios.create({
     baseURL: 'https://moneyfulpublicpolicy.co.kr',
@@ -26,8 +26,17 @@ export const register = async (userid, password, nickname) => {
   
 } 
 
-export const login = async (userData) => {
-    
+export const login = async (userid, password) => {
+    try {
+        const response = await API.post("/login", {
+            id: userid,
+            password,
+        });
+        return response.data;
+    } catch (error) {
+        console.log("Login failed: ", error.response?.data || error.message);
+        throw error;
+    }
 };
 
 export const getUserProfile = async (token) => {
