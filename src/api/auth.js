@@ -47,12 +47,19 @@ export const getUserProfile = async () => {
 
 export const updateProfile = async (nickname) => {
     try {
+        const token = localStorage.getItem("token");
+
+        if(!token) {
+            throw new Error ("로그인이 필요합니다.");
+        }
+
         const formData = new FormData();
         formData.set("nickname", nickname);
 
         const response = await API.patch("/profile", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
+                "Authorization": `Bearer ${token}`,
             }
         })
         return response.data;
