@@ -14,10 +14,30 @@ const LoggedInNav = () => {
 
   return (
     <>
-    <Link to="/profile">프로필</Link>
-    <Link to="/test">테스트</Link>
-    <Link to="/test-result">결과보기</Link>
-    <button onClick={handleLogout}>로그아웃</button>
+      <Link
+        to="/profile"
+        className="text-gray-800 hover:text-red-600 font-semibold text-lg"
+      >
+        프로필
+      </Link>
+      <Link
+        to="/test"
+        className="text-gray-800 hover:text-red-600 font-semibold text-lg"
+      >
+        테스트
+      </Link>
+      <Link
+        to="/result"
+        className="text-gray-800 hover:text-red-600 font-semibold text-lg"
+      >
+        결과 보기
+      </Link>
+      <button
+        onClick={handleLogout}
+        className="bg-red-500 text-white py-2 px-4 rounded-lg font-bold hover:bg-red-600"
+      >
+        로그아웃
+      </button>
     </>
   )
 }

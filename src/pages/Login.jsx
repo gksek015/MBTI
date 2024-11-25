@@ -2,6 +2,7 @@ import AuthForm from "../components/AuthForm";
 import { login } from "../api/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Navbar from "../components/NavBar";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -19,20 +20,26 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h1>로그인</h1>
+    <>
+    <Navbar/>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="bg-white shadow-lg rounded-lg p-8 w-96">
+        <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">로그인</h1>
         <AuthForm mode="login" onSubmit={handleLogin} />
         <div>
-          <p>
+          <p className="text-center text-sm text-gray-500 mt-4">
             계정이 없으신가요?{" "}
-            <Link to="/signup">
+            <Link
+            to="/signup"
+            className="text-red-500 font-bold hover:underline"
+            >
               회원가입
             </Link>
           </p>
         </div>
       </div>
     </div>
+    </>
   );
 };
 
