@@ -32,7 +32,9 @@ export const login = async (userid, password) => {
             id: userid,
             password,
         });
-        return response.data;
+        const {userId, nickname} = response.data
+        localStorage.setItem("user", JSON.stringify({userId, nickname}))
+        return {userId, nickname};
     } catch (error) {
         console.log("Login failed: ", error.response?.data || error.message);
         throw error;

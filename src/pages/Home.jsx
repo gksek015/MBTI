@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+import Navbar from "../components/NavBar";
+
 
 const Home = () => {
   return (
     <>
+    <Navbar/>
       <div className="bg-gray-50 min-h-screen mt-16">
         <div className="container mx-auto py-10 px-6">
           <h1 className="text-4xl font-bold text-center text-gray-800 mb-6">
