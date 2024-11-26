@@ -1,88 +1,34 @@
 {
   "testResults": [
     {
-      "id": "6394",
-      "userId": "anonymous",
+      "id": "aa40",
       "result": "ESTJ",
       "visibility": true,
-      "createdAt": "2024-11-26T00:38:36.477Z"
+      "createdAt": "2024-11-26T01:54:44.618Z"
     },
     {
-      "id": "7291",
-      "userId": "anonymous",
-      "result": "ESTJ",
+      "id": "f9ba",
+      "result": "ENTP",
       "visibility": true,
-      "createdAt": "2024-11-26T00:43:32.736Z"
+      "createdAt": "2024-11-26T02:29:39.789Z"
     },
     {
-      "id": "f684",
-      "userId": "anonymous",
-      "result": "ESTJ",
+      "id": "1692",
+      "result": "ESFJ",
       "visibility": true,
-      "createdAt": "2024-11-26T00:43:56.192Z"
+      "createdAt": "2024-11-26T03:12:25.972Z"
     },
     {
-      "id": "1dad",
-      "userId": "anonymous",
-      "result": "ESTJ",
+      "id": "a781",
+      "result": "ESFP",
       "visibility": true,
-      "createdAt": "2024-11-26T00:49:42.941Z"
+      "createdAt": "2024-11-26T03:22:00.118Z"
     },
     {
-      "id": "4862",
-      "userId": "anonymous",
-      "result": "ESTJ",
+      "id": "3f77",
+      "result": "ESFJ",
       "visibility": true,
-      "createdAt": "2024-11-26T00:55:39.031Z"
-    },
-    {
-      "id": "c476",
-      "userId": "anonymous",
-      "result": "ESTJ",
-      "visibility": true,
-      "createdAt": "2024-11-26T01:08:56.573Z"
-    },
-    {
-      "id": "2b21",
-      "userId": "anonymous",
-      "result": "ESTJ",
-      "visibility": true,
-      "createdAt": "2024-11-26T01:29:12.891Z"
-    },
-    {
-      "id": "e537",
-      "userId": "anonymous",
-      "result": "ESTJ",
-      "visibility": true,
-      "createdAt": "2024-11-26T01:31:16.083Z"
-    },
-    {
-      "id": "474e",
-      "userId": "anonymous",
-      "result": "ESTJ",
-      "visibility": true,
-      "createdAt": "2024-11-26T01:32:10.499Z"
-    },
-    {
-      "id": "cd8a",
-      "userId": "anonymous",
-      "result": "ESTJ",
-      "visibility": true,
-      "createdAt": "2024-11-26T01:32:41.382Z"
-    },
-    {
-      "id": "4a3c",
-      "userId": "anonymous",
-      "result": "ESTJ",
-      "visibility": true,
-      "createdAt": "2024-11-26T01:40:13.794Z"
-    },
-    {
-      "id": "4512",
-      "userId": "anonymous",
-      "result": "INFP",
-      "visibility": true,
-      "createdAt": "2024-11-26T01:40:49.794Z"
+      "createdAt": "2024-11-26T03:41:53.466Z"
     }
   ]
 }
