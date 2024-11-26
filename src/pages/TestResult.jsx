@@ -6,7 +6,8 @@ import { toast } from "react-toastify";
 const TestResult = () => {
   const [results, setResults] = useState([]);
 
-
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user.userId);
 
 
 useEffect(() => {
@@ -23,13 +24,6 @@ useEffect(() => {
   fetchTestResults();
 }, [])
 
-const handleHide = (id) => {
-  const updatedResults = results.map((result) =>
-    result.id === id ? {...result, visibility: false} : result
-  );
-  setResults(updatedResults);
-  toast.success(`${id}가 비공개 처리되었습니다.`);
-}
 
 const handleDelete = (id) => {
   const updatedResults = results.filter((result) => result.id !== id);
@@ -51,8 +45,9 @@ console.log("filter => ", filteredResults)
       <div>
             <TestResultList
               results={filteredResults}
-              onHide={handleHide}
+              setResults={setResults}
               onDelete={handleDelete}
+              currentUserId={user?.userId}
             />
       </div>
     </div>
