@@ -1,20 +1,6 @@
 import TestResultItem from "./TestResultItem";
 
-const TestResultList = ({ results, currentUserId, setResults, onDelete }) => {
-
-  const handleUpdate = (id, updatedResult) => {
-    if (updatedResult === null) {
-      // 삭제된 결과 제거
-      setResults((prevResults) =>
-        prevResults.filter((result) => result.id !== id)
-      );
-    } else {
-      // 상태 갱신
-      setResults((prevResults) =>
-        prevResults.map((result) => (result.id === id ? updatedResult : result))
-      );
-    }
-  };
+const TestResultList = ({ results, currentUserId, onUpdate, onDelete }) => {
 
   return (
     <div className="flex flex-col space-y-6 w-full max-w-3xl">
@@ -24,7 +10,7 @@ const TestResultList = ({ results, currentUserId, setResults, onDelete }) => {
             key={result.id}
             results={result}
             currentUserId={currentUserId}
-            onUpdate={handleUpdate}
+            onUpdate={onUpdate}
             onDelete={onDelete}
           />
         ))}
