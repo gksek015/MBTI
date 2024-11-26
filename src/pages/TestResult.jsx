@@ -25,7 +25,7 @@ useEffect(() => {
 const handleDelete = (id) => {
   const updatedResults = results.filter((result) => result.id !== id);
   setResults(updatedResults);
-  toast.success(`삭제되었습니다.`)
+  toast.success("삭제되었습니다.")
 }
 
   return (

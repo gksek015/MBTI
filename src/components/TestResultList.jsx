@@ -5,7 +5,6 @@ const TestResultList = ({ results, currentUserId, setResults, onDelete }) => {
   const handleUpdate = (id, updatedResult) => {
     if (updatedResult === null) {
       // 삭제된 결과 제거
-      console.log("입장")
       setResults((prevResults) =>
         prevResults.filter((result) => result.id !== id)
       );
