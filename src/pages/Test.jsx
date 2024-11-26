@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { createTestResult } from "../api/testResults";
 import { getUserProfile } from "../api/auth";
 import { toast } from "react-toastify";
-import Navbar from "../components/NavBar";
+import Navbar from "../components/Navbar";
 
 const TestPage = () => {
   const navigate = useNavigate();

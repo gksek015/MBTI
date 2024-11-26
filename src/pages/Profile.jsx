@@ -1,5 +1,5 @@
 import  { useEffect, useState } from "react";
-import Navbar from "../components/NavBar";
+import Navbar from "../components/Navbar";
 import { getUserProfile, updateProfile } from "../api/auth";
 import { toast } from "react-toastify";
 

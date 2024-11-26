@@ -2,7 +2,7 @@ import AuthForm from "../components/AuthForm";
 import { register } from "../api/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Navbar from "../components/NavBar";
+import Navbar from "../components/Navbar";
 
 const Signup = () => {
   const navigate = useNavigate();

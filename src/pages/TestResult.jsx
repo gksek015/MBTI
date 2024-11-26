@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getTestResults } from "../api/testResults";
 import TestResultList from "../components/TestResultList";
 import { toast } from "react-toastify";
-import Navbar from "../components/NavBar";
+import Navbar from "../components/Navbar";
 
 const TestResult = () => {
   const [results, setResults] = useState([]);
