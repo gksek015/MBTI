@@ -11,7 +11,6 @@ const Profile = () => {
     const fetchProfile = async () => {
         try {
             const profile = await getUserProfile();
-            console.log(profile)
             setNickname(profile.nickname);
         } catch (error) {
             console.error(error)

@@ -8,14 +8,11 @@ const TestResult = () => {
   const [results, setResults] = useState([]);
 
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user.userId);
-
 
 useEffect(() => {
   const fetchTestResults = async () => {
     try {
       const response = await getTestResults();
-      console.log("response ",response)
       setResults(response)
     } catch (error) {
       console.error(error)
@@ -30,13 +27,6 @@ const handleDelete = (id) => {
   setResults(updatedResults);
   toast.success(`${id}가 삭제되었습니다.`)
 }
-
-console.log("result => ", results)
-
-// const filteredResults = Array.isArray(results)
-// ? results.filter((result) => result.visibility === true)
-// : [];
-// console.log("filter => ", filteredResults)
 
   return (
     <>

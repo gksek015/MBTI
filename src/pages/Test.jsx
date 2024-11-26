@@ -25,7 +25,6 @@ const TestPage = () => {
   },[])
 
   const handleTestSubmit = async (answers) => {
-    console.log({answers})
 
     const mbtiResult = calculateMBTI(answers);
 		
@@ -73,7 +72,7 @@ const TestPage = () => {
             </p>
             <button
               onClick={handleNavigateToResults}
-              className="w-full bg-primary-color py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300 hover:text-[#FF5A5F]"
+              className="w-full bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300"
             >
               결과 페이지로 이동하기
             </button>

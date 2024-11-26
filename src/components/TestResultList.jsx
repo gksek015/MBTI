@@ -1,7 +1,6 @@
 import TestResultItem from "./TestResultItem";
 
 const TestResultList = ({ results, currentUserId, setResults, onDelete }) => {
-    console.log("result", results)
 
   const handleUpdate = (id, updatedResult) => {
     if (updatedResult === null) {

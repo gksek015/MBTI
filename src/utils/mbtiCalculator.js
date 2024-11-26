@@ -37,7 +37,6 @@ export const calculateMBTI = (answers) => {
   const scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
 
   // answers 배열을 순회하며 점수 누적
-  console.log({answers})
   answers.forEach(({ type, answer, options }) => {
     const [answer1, answer2] = options;
     const [option1, option2] = type.split("/"); // E/I, S/N 등의 유형 분리
