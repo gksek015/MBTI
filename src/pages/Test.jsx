@@ -4,6 +4,8 @@ import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator";
 import { useNavigate } from "react-router-dom";
 import { createTestResult } from "../api/testResults";
 import { getUserProfile } from "../api/auth";
+import { toast } from "react-toastify";
+import Navbar from "../components/NavBar";
 
 const TestPage = () => {
   const navigate = useNavigate();
@@ -37,7 +39,7 @@ const TestPage = () => {
         visibility: true,
         createdAt : new Date().toISOString(),
       });
-      console.log("결과가 성공적으로 저장되었습니다.")
+      toast.success("결과가 성공적으로 저장되었습니다.")
       setResult(mbtiResult);
     } catch (error) {
       console.error(error)
@@ -49,7 +51,9 @@ const TestPage = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center bg-white">
+    <>
+    <Navbar/>
+    <div className="w-full flex flex-col items-center justify-center bg-white mt-16">
       <div className="bg-white rounded-lg p-8 max-w-lg w-full h-full overflow-y-auto">
         {!result ? (
           <>
@@ -77,6 +81,7 @@ const TestPage = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

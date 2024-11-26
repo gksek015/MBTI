@@ -10,7 +10,6 @@ export const getTestResults = async () => {
         console.error(error);
         throw error;
     }
-  
 };
 
 export const createTestResult = async (resultData) => {
