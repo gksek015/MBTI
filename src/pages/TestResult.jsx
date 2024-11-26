@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getTestResults } from "../api/testResults";
 import TestResultList from "../components/TestResultList";
+import { toast } from "react-toastify";
 
 const TestResult = () => {
   const [results, setResults] = useState([]);
@@ -22,12 +23,18 @@ useEffect(() => {
   fetchTestResults();
 }, [])
 
-const handleUpdate = () => {
-
+const handleHide = (id) => {
+  const updatedResults = results.map((result) =>
+    result.id === id ? {...result, visibility: false} : result
+  );
+  setResults(updatedResults);
+  toast.success(`${id}가 비공개 처리되었습니다.`);
 }
 
-const handleDelete = () => {
-
+const handleDelete = (id) => {
+  const updatedResults = results.filter((result) => result.id !== id);
+  setResults(updatedResults);
+  toast.success(`${id}가 삭제되었습니다.`)
 }
 
 console.log("result => ", results)
@@ -39,21 +46,14 @@ console.log("filter => ", filteredResults)
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">내 테스트 결과</h1>
+      <h1 className="text-3xl font-bold mb-6">모든 테스트 결과</h1>
 
       <div>
-        {filteredResults.length > 0 ? (
-          filteredResults.map((result) => (
             <TestResultList
-              key={result.id}
-              results={result}
-              onUpdate={handleUpdate}
+              results={filteredResults}
+              onHide={handleHide}
               onDelete={handleDelete}
             />
-          ))
-        ) : (
-          <p>현재 테스트 결과가 없습니다.</p>
-        )}
       </div>
     </div>
   );

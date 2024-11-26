@@ -1,21 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TestForm from "../components/TestForm";
 import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator";
 import { useNavigate } from "react-router-dom";
 import { createTestResult } from "../api/testResults";
+import { getUserProfile } from "../api/auth";
 
-const TestPage = ({ user }) => {
+const TestPage = () => {
   const navigate = useNavigate();
   const [result, setResult] = useState(null);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const fetchedUser = await getUserProfile();
+        setUser(fetchedUser)
+      } catch (error) {
+        console.error(error)
+      }
+    };
+    fetchUser();
+  },[])
 
   const handleTestSubmit = async (answers) => {
     console.log({answers})
+
     const mbtiResult = calculateMBTI(answers);
 		
     try {
+      const mbtiDescription = mbtiDescriptions[mbtiResult]
       await createTestResult({
         userId: user?.id,
+        nickname: user.nickname,
         result: mbtiResult,
+        description: mbtiDescription,
         visibility: true,
         createdAt : new Date().toISOString(),
       });

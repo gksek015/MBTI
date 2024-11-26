@@ -1,7 +1,7 @@
 import TestResultItem from "./TestResultItem";
 
 
-const TestResultList = ({results, onUpdate, onDelete}) => {
+const TestResultList = ({results, onHide, onDelete}) => {
     console.log("first", results)
     return (
         <div>
@@ -9,9 +9,9 @@ const TestResultList = ({results, onUpdate, onDelete}) => {
             results.map((result) => (
               <TestResultItem
                 key={result.id}
-                results={result} // 단일 결과 전달
-                onUpdate={onUpdate}
-                onDelete={onDelete}
+                results={result}
+                onHide={() => onHide(result.id)}
+                onDelete={() => onDelete(result.id)}
               />
             ))
           ) : (
