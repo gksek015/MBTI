@@ -8,12 +8,17 @@ const TestForm = ({ onSubmit }) => {
 
   const handleChange = (index, answer) => {
     const newAnswers = [...answers];
-    newAnswers[index] = { type: questions[index].type, answer };
+    newAnswers[index] = { type: questions[index].type, answer, options: questions[index].options };
     setAnswers(newAnswers);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // const isComplete = answers.every((ans) => ans.answer !== "");
+    // if (!isComplete) {
+    //   alert("모든 질문에 답변해 주세요.");
+    //   return;
+    // }
     onSubmit(answers);
   };
 

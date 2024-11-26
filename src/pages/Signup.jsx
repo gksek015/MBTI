@@ -7,7 +7,7 @@ import Navbar from "../components/NavBar";
 const Signup = () => {
   const navigate = useNavigate();
 
-  // 완성된 로직들이 아니에요! 참고만 하세요!
+
   const handleSignup = async (formData) => {
     try {
       await register(formData.userid, formData.password, formData.nickname);
