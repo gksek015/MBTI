@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { createTestResult } from "../api/testResults";
 import { getUserProfile } from "../api/auth";
 import { toast } from "react-toastify";
-import Navbar from "../components/Navbar";
 
 const TestPage = () => {
   const navigate = useNavigate();
@@ -51,7 +50,6 @@ const TestPage = () => {
 
   return (
     <>
-    <Navbar/>
     <div className="w-full flex flex-col items-center justify-center bg-white mt-16">
       <div className="bg-white rounded-lg p-8 max-w-lg w-full h-full overflow-y-auto">
         {!result ? (

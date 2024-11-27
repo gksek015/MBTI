@@ -1,16 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { useAuth } from "../context/AuthContext";
 
 
 const LoggedInNav = () => {
     const navigate = useNavigate();
-
-    const handleLogout = () => {
-        localStorage.removeItem("user");
-        localStorage.removeItem("token");
-        toast.success("로그아웃 되었습니다.");
-        navigate("/login");
-    }
+    const { logout } = useAuth();
 
   return (
     <>
@@ -33,7 +27,10 @@ const LoggedInNav = () => {
         결과 보기
       </Link>
       <button
-        onClick={handleLogout}
+        onClick={() => {
+          logout();
+          navigate("/login")
+        }}
         className="bg-red-500 text-white py-2 px-4 rounded-lg font-bold hover:bg-red-600"
       >
         로그아웃

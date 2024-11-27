@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { deleteTestResult, getTestResults, updateTestResultVisibility } from "../api/testResults";
 import TestResultList from "../components/TestResultList";
 import { toast } from "react-toastify";
-import Navbar from "../components/Navbar";
+import { useAuth } from "../context/AuthContext";
 
 const TestResult = () => {
   const [results, setResults] = useState([]);
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  const {user} = useAuth();
 
 useEffect(() => {
   const fetchTestResults = async () => {
@@ -50,7 +50,6 @@ const handleToggleVisibility = async (id, visibility) => {
 
   return (
     <>
-    <Navbar/>
     <div className="w-full flex flex-col items-center justify-center bg-white shadow-lg rounded-lg p-8 mt-16">
       <h1 className="text-3xl font-bold mb-6">모든 테스트 결과</h1>
       <div>

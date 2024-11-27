@@ -7,12 +7,14 @@ import TestResult from "../pages/TestResult"
 import Profile from "../pages/Profile"
 import ProtectedRoute from "../components/ProtectedRoute"
 import Test from "../pages/Test"
+import Layout from "../components/Layout"
 
 
 const Router = () => {
   return (
     <BrowserRouter>
     <Routes>
+      <Route element={<Layout/>}>
         <Route element={<ProtectedRoute/>}>
             <Route path="/" element={<Home/>}/>
             <Route path="/profile" element={<Profile/>}/>
@@ -21,6 +23,7 @@ const Router = () => {
         </Route>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
+        </Route>
     </Routes>
     </BrowserRouter>
   )

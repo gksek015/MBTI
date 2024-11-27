@@ -1,5 +1,4 @@
 import  { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
 import { getUserProfile, updateProfile } from "../api/auth";
 import { toast } from "react-toastify";
 
@@ -44,7 +43,6 @@ const Profile = () => {
 
   return (
     <>
-    <Navbar/>
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
         <h1 className="text-3xl font-semibold text-center text-primary-color mb-6">프로필 수정</h1>

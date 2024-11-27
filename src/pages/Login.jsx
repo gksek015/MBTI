@@ -1,12 +1,11 @@
 import AuthForm from "../components/AuthForm";
-import { login } from "../api/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Navbar from "../components/Navbar";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
     const navigate = useNavigate();
-
+  const {login} = useAuth();
 
   const handleLogin = async (formData) => {
     try {
@@ -21,7 +20,6 @@ const Login = () => {
 
   return (
     <>
-    <Navbar/>
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="bg-white shadow-lg rounded-lg p-8 w-96">
         <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">로그인</h1>

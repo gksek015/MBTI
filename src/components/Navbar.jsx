@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import LoggedInNav from "./LoggedInNav";
 import LoggedOutNav from "./LoggedOutNav";
+import { useAuth } from "../context/AuthContext";
 
 
 const Navbar = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    const isLoggedIn = !!user;
+    const {isLoggedIn} = useAuth();
 
   return (
     <header className="bg-gray-100 shadow-md fixed top-0 left-0 w-full z-50 flex">
