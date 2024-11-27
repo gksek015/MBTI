@@ -1,7 +1,5 @@
 
 const TestResultItem = ({results, onUpdate, onDelete, currentUserId}) => {
-
-    // const userId = JSON.parse(localStorage.getItem("user")).userId
     const { id, visibility } = results;
 
     return (

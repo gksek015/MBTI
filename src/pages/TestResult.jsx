@@ -14,7 +14,6 @@ useEffect(() => {
     try {
       const response = await getTestResults();
       setResults(response)
-      console.log("res",response)
     } catch (error) {
       console.error(error)
     }
@@ -30,7 +29,6 @@ const handleDelete = async (id) => {
       return prevResults.filter((result) => result.id !== id);
     });
     toast.success("삭제되었습니다.");
-    
   } catch (error) {
     toast.error("삭제에 실패했습니다.");
     console.error("삭제 중 오류 발생:", error);
@@ -44,16 +42,11 @@ const handleToggleVisibility = async (id, visibility) => {
     const updatedResult = await updateTestResultVisibility(id, !visibility);
     setResults((prevResults) =>
       prevResults.map((result) => (result.id === id ? updatedResult : result))
-    );
-    console.log("upda",updatedResult)
-
+    )
   } catch (error) {
     console.error("Error toggling visibility:", error);
   }
 };
-
-
-  console.log(results)
 
   return (
     <>
