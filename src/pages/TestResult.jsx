@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { deleteTestResult, getTestResults } from "../api/testResults";
+import { deleteTestResult, getTestResults, updateTestResultVisibility } from "../api/testResults";
 import TestResultList from "../components/TestResultList";
 import { toast } from "react-toastify";
 import Navbar from "../components/Navbar";
@@ -14,6 +14,7 @@ useEffect(() => {
     try {
       const response = await getTestResults();
       setResults(response)
+      console.log("res",response)
     } catch (error) {
       console.error(error)
     }
@@ -25,7 +26,6 @@ useEffect(() => {
 const handleDelete = async (id) => {
   try {
     await deleteTestResult(id);
-
     setResults((prevResults) => {
       return prevResults.filter((result) => result.id !== id);
     });
@@ -37,11 +37,23 @@ const handleDelete = async (id) => {
   }
 };
 
-const handleUpdate = (id, updatedResult) => {
-  setResults((prevResults) =>
-    prevResults.map((result) => (result.id === id ? updatedResult : result))
-  );
+
+
+const handleToggleVisibility = async (id, visibility) => {
+  try {
+    const updatedResult = await updateTestResultVisibility(id, !visibility);
+    setResults((prevResults) =>
+      prevResults.map((result) => (result.id === id ? updatedResult : result))
+    );
+    console.log("upda",updatedResult)
+
+  } catch (error) {
+    console.error("Error toggling visibility:", error);
+  }
 };
+
+
+  console.log(results)
 
   return (
     <>
@@ -52,7 +64,7 @@ const handleUpdate = (id, updatedResult) => {
             <TestResultList
               results={results}
               onDelete={handleDelete}
-              onUpdate={handleUpdate}
+              onUpdate={handleToggleVisibility}
               currentUserId={user?.userId}
             />
       </div>

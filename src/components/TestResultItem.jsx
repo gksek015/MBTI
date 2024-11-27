@@ -1,19 +1,8 @@
-import { updateTestResultVisibility } from "../api/testResults";
 
 const TestResultItem = ({results, onUpdate, onDelete, currentUserId}) => {
 
     // const userId = JSON.parse(localStorage.getItem("user")).userId
     const { id, visibility } = results;
-
-    const handleToggleVisibility = async () => {
-        try {
-          const updatedResult = await updateTestResultVisibility(id, !visibility);
-          onUpdate(id, updatedResult); 
-        } catch (error) {
-          console.error("Error toggling visibility:", error);
-        }
-      };
-    
 
     return (
         <div className="p-6 bg-gray-800 rounded-lg shadow-lg text-white">
@@ -24,7 +13,7 @@ const TestResultItem = ({results, onUpdate, onDelete, currentUserId}) => {
           </div>
           {results.userId === currentUserId && (
           <div className="flex justify-end space-x-4">
-            <button onClick={handleToggleVisibility} className="bg-blue-500 py-2 px-4 rounded-lg text-sm hover:bg-blue-600 transition">
+            <button onClick={() => onUpdate(id, visibility)} className="bg-blue-500 py-2 px-4 rounded-lg text-sm hover:bg-blue-600 transition">
               {visibility ? "비공개" : "공개"}
             </button>
             <button onClick={() => onDelete(results.id)} className="bg-red-500 py-2 px-4 rounded-lg text-sm hover:bg-red-600 transition">
